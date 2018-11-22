@@ -81,6 +81,7 @@ public class FXMLDocumentController implements Initializable {
     private Label lblInvisible;
     @FXML
     private Button btnFakeData;
+    public static List<User> userList = new ArrayList<User>();
     Image img1;
     Image img2;
     Image img3;
@@ -146,22 +147,9 @@ public class FXMLDocumentController implements Initializable {
                     txtGender.getText(), txtFamilyStatus.getText(), txtKids.getText(),
                     txtDesc.getText(), imgImageProfile.getImage(), chkNewsletter.isSelected(), Radio,
                     (int) nudCars.getValue(), cboFootbal.getValue().toString(), lstInterests.getSelectionModel().getSelectedItems());
+            userList.add(t);
             lstClients.getItems().add(t);
-            lstClients.setCellFactory(new Callback<ListView<User>, ListCell<User>>() {
-                @Override
-                public ListCell<User> call(ListView<User> p) {
-                    ListCell<User> cell = new ListCell<User>() {
-                        @Override
-                        protected void updateItem(User t, boolean bln) {
-                            super.updateItem(t, bln);
-                            if (t != null) {
-                                setText(t.name);
-                            }
-                        }
-                    };
-                    return cell;
-                }
-            });
+            lstClients.refresh();
 
         } else {
             System.out.println("Cancel was pressed.");
@@ -223,7 +211,7 @@ public class FXMLDocumentController implements Initializable {
     }
 
     private User getUserByName(String name) {
-        for (User u : User.UserList) {
+        for (User u : userList) {
             if (u.name.toLowerCase().equals(name.toLowerCase())) {
                 return u;
             }

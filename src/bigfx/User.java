@@ -16,7 +16,7 @@ import javafx.scene.image.Image;
  * @author Ticu
  */
 public class User {
-    
+
     public String name;
     public String secondname;
     public int age;
@@ -30,39 +30,31 @@ public class User {
     public int nrcars;
     public String favteam;
     public ObservableList interests;
-    public static List<User> UserList = new ArrayList<User>();
-    
+
     public User(String name, String secondname, int age, String gender, String familystatus, String kids,
-            String desc,Image img, boolean newsletter, String unemployment, int cars, String favteam, ObservableList list){
-    this.name=name;
-    this.secondname=secondname;
-    this.age=age;
-    this.gender=gender;
-    this.family_status=familystatus;
-    this.kids=kids;
-    this.desc=desc;
-    this.img=img;
-    this.newsletter=newsletter;
-    this.unemployment=unemployment;
-    this.nrcars=cars;
-    this.favteam=favteam;
-    this.interests=list;
-        UserList.add(this);
-        for (User user : UserList) {
-            System.out.print(user.name + " ");
-        } System.out.println("End List");
-    
+            String desc, Image img, boolean newsletter, String unemployment, int cars, String favteam, ObservableList list) {
+        this.name = name;
+        this.secondname = secondname;
+        this.age = age;
+        this.gender = gender;
+        this.family_status = familystatus;
+        this.kids = kids;
+        this.desc = desc;
+        this.img = img;
+        this.newsletter = newsletter;
+        this.unemployment = unemployment;
+        this.nrcars = cars;
+        this.favteam = favteam;
+        this.interests = list;
     }
 
     @Override
     public String toString() {
-        return "User{" + "name=" + name + ", secondname=" + secondname + ", age=" + age + ", gender=" + gender + ", family_status=" + family_status + ", kids=" + kids + ", desc=" + desc + ", img=" + img + ", newsletter=" + newsletter + ", unemployment=" + unemployment + ", nrcars=" + nrcars + ", favteam=" + favteam + ", interests=" + interests + '}';
+        return name + " " + secondname;
     }
-    
+
     public String toStringForThatBox() {
         return "User{" + "name=" + name + ", secondname=" + secondname + ", age=" + age + ", gender=" + gender + ", family_status=" + family_status + ", kids=" + kids + ", desc=" + desc + ", img=" + img + ", newsletter=" + newsletter + ", unemployment=" + unemployment + ", nrcars=" + nrcars + ", favteam=" + favteam + ", interests=" + interests + '}';
     }
-    
+
 }
-
-
